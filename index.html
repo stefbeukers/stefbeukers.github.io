@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn Hippe CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4e8c1; /* Zacht geel/beige achtergrond */
+            --accent-pink: #ff5277;
+            --accent-blue: #4d96ff;
+            --accent-green: #00e5ff;
+            --text-color: #111;
+            --border-style: 4px solid var(--text-color);
+            --box-shadow: 6px 6px 0px var(--text-color);
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* De hippe blokken ('cards') */
+        .card {
+            background-color: white;
+            border: var(--border-style);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px var(--text-color);
+        }
+
+        /* Kleurvariaties voor de blokken */
+        .header-card { background-color: var(--accent-green); text-align: center; }
+        .experience-card { background-color: white; }
+        .skills-card { background-color: var(--accent-pink); color: white; }
+
+        h1 {
+            font-size: 3em;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            border-bottom: var(--border-style);
+            padding-bottom: 10px;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: var(--text-color);
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        /* CV Items */
+        .job {
+            margin-bottom: 25px;
+        }
+
+        .job h3 {
+            margin: 0;
+            font-size: 1.4em;
+            color: var(--accent-blue);
+            text-shadow: 1px 1px 0px black;
+        }
+
+        .job-date {
+            font-weight: bold;
+            font-size: 0.9em;
+            border: 2px solid var(--text-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            background-color: var(--bg-color);
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        /* Skills tags */
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--text-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 3px solid var(--accent-pink);
+        }
+
+        a:hover {
+            background-color: var(--accent-pink);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="card header-card">
+            <h1>Jouw Naam</h1>
+            <div class="subtitle">Creatieve Duizendpoot & Professional</div>
+            <p>Welkom op mijn stukje internet. Ik doe dingen en ik doe ze goed.</p>
+        </div>
+
+        <div class="card">
+            <h2>Let's Connect</h2>
+            <p>
+                📍 Woonplaats: Arnhem, Nederland<br>
+                📧 Email: <a href="mailto:hallo@jouwemail.nl">hallo@jouwemail.nl</a><br>
+                🔗 LinkedIn: <a href="#">linkedin.com/in/jouwprofiel</a>
+            </p>
+        </div>
+
+        <div class="card experience-card">
+            <h2>Werkervaring</h2>
+            
+            <div class="job">
+                <h3>Functietitel 1</h3>
+                <div class="job-date">Jan 2022 - Heden | Bedrijfsnaam</div>
+                <p>Hier beschrijf je wat je hebt gedaan. Maak het kort, krachtig en met een beetje flair. Geen saaie lappen tekst, maar opsommingen werken altijd goed!</p>
+            </div>
+
+            <div class="job">
+                <h3>Functietitel 2</h3>
+                <div class="job-date">Mei 2019 - Dec 2021 | Vorig Bedrijf</div>
+                <p>Verantwoordelijk voor dit, dat en de rest. Heb de omzet met 20% verhoogd en zorgde altijd voor de beste koffie op kantoor.</p>
+            </div>
+        </div>
+
+        <div class="card skills-card">
+            <h2 style="border-bottom-color: white;">Skills & Superkrachten</h2>
+            <div>
+                <span class="skill-tag">HTML & CSS</span>
+                <span class="skill-tag">Projectmanagement</span>
+                <span class="skill-tag">Koffie Drinken</span>
+                <span class="skill-tag">Probleemoplossend</span>
+                <span class="skill-tag">Creatief Denken</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
