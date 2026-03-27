@@ -7,10 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f4e8c1; /* Zacht geel/beige achtergrond */
+            --bg-color: #f4e8c1;
             --accent-pink: #ff5277;
             --accent-blue: #4d96ff;
             --accent-green: #00e5ff;
+            --accent-yellow: #ffde59;
             --text-color: #111;
             --border-style: 4px solid var(--text-color);
             --box-shadow: 6px 6px 0px var(--text-color);
@@ -30,7 +31,6 @@
             margin: 0 auto;
         }
 
-        /* De hippe blokken ('cards') */
         .card {
             background-color: white;
             border: var(--border-style);
@@ -46,23 +46,14 @@
             box-shadow: 8px 8px 0px var(--text-color);
         }
 
-        /* Kleurvariaties voor de blokken */
         .header-card { background-color: var(--accent-green); text-align: center; }
         .experience-card { background-color: white; }
+        .education-card { background-color: var(--accent-yellow); }
+        .certs-card { background-color: white; }
         .skills-card { background-color: var(--accent-pink); color: white; }
 
-        h1 {
-            font-size: 3em;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-        }
-
-        h2 {
-            border-bottom: var(--border-style);
-            padding-bottom: 10px;
-            margin-top: 0;
-            text-transform: uppercase;
-        }
+        h1 { font-size: 3em; margin: 0 0 10px 0; text-transform: uppercase; }
+        h2 { border-bottom: var(--border-style); padding-bottom: 10px; margin-top: 0; text-transform: uppercase; }
 
         .subtitle {
             font-size: 1.2em;
@@ -74,18 +65,9 @@
             border-radius: 20px;
         }
 
-        /* CV Items */
-        .job {
-            margin-bottom: 25px;
-        }
-
-        .job h3 {
-            margin: 0;
-            font-size: 1.4em;
-            color: var(--accent-blue);
-            text-shadow: 1px 1px 0px black;
-        }
-
+        .job { margin-bottom: 25px; }
+        .job h3 { margin: 0; font-size: 1.4em; color: var(--accent-blue); text-shadow: 1px 1px 0px black; }
+        
         .job-date {
             font-weight: bold;
             font-size: 0.9em;
@@ -98,7 +80,27 @@
             color: var(--text-color);
         }
 
-        /* Skills tags */
+        .edu-date {
+            background-color: white;
+        }
+
+        ul.cert-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul.cert-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        ul.cert-list li::before {
+            content: "👉";
+            position: absolute;
+            left: 0;
+        }
+
         .skill-tag {
             display: inline-block;
             background-color: var(--text-color);
@@ -110,17 +112,8 @@
             border: 2px solid white;
         }
 
-        a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 3px solid var(--accent-pink);
-        }
-
-        a:hover {
-            background-color: var(--accent-pink);
-            color: white;
-        }
+        a { color: var(--text-color); text-decoration: none; font-weight: bold; border-bottom: 3px solid var(--accent-pink); }
+        a:hover { background-color: var(--accent-pink); color: white; }
     </style>
 </head>
 <body>
@@ -129,8 +122,8 @@
         
         <div class="card header-card">
             <h1>Jouw Naam</h1>
-            <div class="subtitle">Creatieve Duizendpoot & Professional</div>
-            <p>Welkom op mijn stukje internet. Ik doe dingen en ik doe ze goed.</p>
+            <div class="subtitle">Senior Business Analist</div>
+            <p>Bruggenbouwer tussen business en IT. Ik vertaal complexe vraagstukken naar werkbare oplossingen.</p>
         </div>
 
         <div class="card">
@@ -146,26 +139,54 @@
             <h2>Werkervaring</h2>
             
             <div class="job">
-                <h3>Functietitel 1</h3>
-                <div class="job-date">Jan 2022 - Heden | Bedrijfsnaam</div>
-                <p>Hier beschrijf je wat je hebt gedaan. Maak het kort, krachtig en met een beetje flair. Geen saaie lappen tekst, maar opsommingen werken altijd goed!</p>
+                <h3>Sr. Business Analist</h3>
+                <div class="job-date">2023 - Heden | UWV</div>
+                <p><em>[Korte omschrijving van je huidige senior verantwoordelijkheden, projecten die je leidt en de impact die je maakt.]</em></p>
             </div>
 
             <div class="job">
-                <h3>Functietitel 2</h3>
-                <div class="job-date">Mei 2019 - Dec 2021 | Vorig Bedrijf</div>
-                <p>Verantwoordelijk voor dit, dat en de rest. Heb de omzet met 20% verhoogd en zorgde altijd voor de beste koffie op kantoor.</p>
+                <h3>Business Analist</h3>
+                <div class="job-date">2018 - 2023 | UWV</div>
+                <p><em>[Omschrijving van je werkzaamheden in deze periode. Denk aan procesoptimalisatie, requirements gathering en stakeholder management.]</em></p>
+            </div>
+
+            <div class="job">
+                <h3>Trainee Informatievoorziening</h3>
+                <div class="job-date">2017 - 2018 | UWV</div>
+                <p><em>[Korte omschrijving van je start bij het UWV en de projecten waaraan je werkte tijdens je traineeship.]</em></p>
             </div>
         </div>
 
+        <div class="card education-card">
+            <h2>Opleidingen</h2>
+            
+            <div class="job">
+                <h3>MSc Communicatiewetenschap</h3>
+                <div class="job-date edu-date">2016 - 2017 | Radboud Universiteit Nijmegen</div>
+            </div>
+
+            <div class="job">
+                <h3>BSc Communicatiewetenschap</h3>
+                <div class="job-date edu-date">2012 - 2016 | Radboud Universiteit Nijmegen</div>
+            </div>
+        </div>
+
+        <div class="card certs-card">
+            <h2>Certificeringen</h2>
+            <ul class="cert-list">
+                <li><strong>EXIN:</strong> BCS Practitioner in Business Analysis</li>
+                <li><strong>EXIN:</strong> BCS Foundation in Business Analysis</li>
+                <li><strong>Scaled Agile:</strong> SAFe 5 Agilist</li>
+                <li><strong>Bizzdesign:</strong> BPMN Foundation</li>
+            </ul>
+        </div>
+
         <div class="card skills-card">
-            <h2 style="border-bottom-color: white;">Skills & Superkrachten</h2>
+            <h2 style="border-bottom-color: white;">Tools & Software</h2>
             <div>
-                <span class="skill-tag">HTML & CSS</span>
-                <span class="skill-tag">Projectmanagement</span>
-                <span class="skill-tag">Koffie Drinken</span>
-                <span class="skill-tag">Probleemoplossend</span>
-                <span class="skill-tag">Creatief Denken</span>
+                <span class="skill-tag">Microsoft 365</span>
+                <span class="skill-tag">Atlassian Jira</span>
+                <span class="skill-tag">Atlassian Confluence</span>
             </div>
         </div>
 
