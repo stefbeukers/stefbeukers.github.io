@@ -9,12 +9,12 @@
 
         /* Pastel kleurenpalet */
         :root {
-            --bg-color: #fdfbf7;        /* Zachte pastel-crème achtergrond */
-            --text-main: #4a4a4a;       /* Zacht donkergrijs */
-            --text-light: #7a7a7a;      /* Lichtere tekstkleur */
-            --accent-color: #79a3b1;    /* Pastel grijsblauw/teal accentkleur */
-            --accent-light: #e6eef1;    /* Zeer lichte variant */
-            --card-bg: #ffffff;         /* Helderwit voor de blokken */
+            --bg-color: #fdfbf7;
+            --text-main: #4a4a4a;
+            --text-light: #7a7a7a;
+            --accent-color: #79a3b1;
+            --accent-light: #e6eef1;
+            --card-bg: #ffffff;
         }
 
         * {
@@ -45,7 +45,6 @@
             align-items: center;
         }
 
-        /* Profielfoto styling */
         .profile-pic {
             width: 120px;
             height: 120px;
@@ -114,7 +113,6 @@
             padding-bottom: 0.75rem;
         }
 
-        /* Styling voor gegroepeerde items */
         .grouped-card {
             margin-bottom: 2rem;
         }
@@ -156,7 +154,6 @@
             font-weight: 600;
         }
 
-        /* Skills tags */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -173,7 +170,6 @@
             font-weight: 600;
         }
 
-        /* Certificeringen lijst */
         .cert-list {
             list-style-type: none;
         }
@@ -197,6 +193,40 @@
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* --- PRINT STYLESHEET --- */
+        @media print {
+            body {
+                /* Forceer browsers om achtergrondkleuren te printen/op te slaan */
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: var(--bg-color);
+                padding: 0; /* Haal onnodige witruimte aan de randen weg */
+            }
+
+            .container {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .section {
+                box-shadow: none !important; /* Verwijder schaduwen voor een strakker resultaat */
+                border: 1px solid #e2e8f0; /* Voeg een subtiel randje toe als scheiding */
+                break-inside: avoid; /* Voorkom dat een blok halverwege de pagina afbreekt */
+                padding: 2rem;
+                margin-bottom: 1.5rem;
+                transform: none !important; /* Schakel hover effecten uit voor de zekerheid */
+            }
+
+            header {
+                margin-bottom: 2rem;
+            }
+
+            .linkedin-btn {
+                /* Haal hover animaties weg voor print */
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -210,12 +240,12 @@
         </header>
 
         <section class="section">
-            <h2>Over Mij</h2>
-            <p>Als Senior Business Analist sla ik de brug tussen complexe processen en heldere communicatie. Met mijn achtergrond in communicatiewetenschap en jarenlange ervaring binnen het UWV, ben ik gedreven in het vertalen van behoeftes naar werkbare oplossingen. [Dit is een placeholder, pas dit gerust aan]</p>
+            <h2>Over mij</h2>
+            <p>Als Senior Business Analist sla ik de brug tussen complexe bedrijfsprocessen en heldere softwareoplossingen. Binnen een dynamisch agile team richt ik mij specifiek op middleware applicaties—de cruciale schakel tussen front-end en back-end. Mijn kracht ligt in het écht luisteren naar stakeholders en het vertalen van hun behoeften naar de techniek. Door mijn technische en analytische kennis gericht in te zetten, zorg ik ervoor dat we niet alleen software bouwen, maar de dienstverlening aan onze cliënten daadwerkelijk en meetbaar verbeteren.</p>
         </section>
 
         <section class="section">
-            <h2>Werkervaring</h2>
+            <h2>Ervaring</h2>
             <div class="grouped-card">
                 <div class="employer-header">UWV</div>
                 <ul class="grouped-list">
@@ -224,38 +254,25 @@
                             <span class="item-title">Senior business analist</span>
                             <span class="item-date">2023 - Heden</span>
                         </div>
-                        <p>Korte beschrijving van je huidige strategische of leidinggevende taken en projecten.</p>
                     </li>
                     <li>
                         <div class="item-row">
                             <span class="item-title">Business analist</span>
                             <span class="item-date">2018 - 2023</span>
                         </div>
-                        <p>Korte beschrijving van je verantwoordelijkheden gedurende deze periode.</p>
                     </li>
                     <li>
                         <div class="item-row">
                             <span class="item-title">Trainee</span>
                             <span class="item-date">2017 - 2018</span>
                         </div>
-                        <p>Korte beschrijving van je start en ontwikkeling binnen de organisatie.</p>
                     </li>
                 </ul>
             </div>
         </section>
 
         <section class="section">
-            <h2>Skills & Tools</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Atlassian Confluence</span>
-                <span class="skill-tag">Atlassian Jira</span>
-                <span class="skill-tag">Bizzdesign Horizzon</span>
-                <span class="skill-tag">Microsoft 365</span>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Certificeringen</h2>
+            <h2>Certificering</h2>
             <ul class="cert-list">
                 <li>EXIN BCS Practicioner in Business Analysis</li>
                 <li>EXIN BCS Foundation in Business Analysis</li>
@@ -265,7 +282,7 @@
         </section>
 
         <section class="section">
-            <h2>Opleidingen</h2>
+            <h2>Opleiding</h2>
             <div class="grouped-card">
                 <div class="employer-header">Radboud Universiteit Nijmegen</div>
                 <ul class="grouped-list">
@@ -282,6 +299,16 @@
                         </div>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Atlassian Confluence</span>
+                <span class="skill-tag">Atlassian Jira</span>
+                <span class="skill-tag">Bizzdesign Horizzon</span>
+                <span class="skill-tag">Microsoft 365</span>
             </div>
         </section>
 
