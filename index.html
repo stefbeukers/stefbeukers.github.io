@@ -7,14 +7,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
-        /* Nieuw pastel kleurenpalet */
+        /* Pastel kleurenpalet */
         :root {
             --bg-color: #fdfbf7;        /* Zachte pastel-crème achtergrond */
-            --text-main: #4a4a4a;       /* Zacht donkergrijs voor prettige leesbaarheid */
+            --text-main: #4a4a4a;       /* Zacht donkergrijs */
             --text-light: #7a7a7a;      /* Lichtere tekstkleur */
             --accent-color: #79a3b1;    /* Pastel grijsblauw/teal accentkleur */
-            --accent-light: #e6eef1;    /* Zeer lichte variant van de accentkleur */
-            --card-bg: #ffffff;         /* Helderwit voor de blokken om contrast te houden */
+            --accent-light: #e6eef1;    /* Zeer lichte variant */
+            --card-bg: #ffffff;         /* Helderwit voor de blokken */
         }
 
         * {
@@ -40,6 +40,20 @@
             text-align: center;
             margin-bottom: 4rem;
             animation: fadeInDown 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Profielfoto styling */
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-light);
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         h1 {
@@ -60,7 +74,6 @@
             font-weight: 300;
         }
 
-        /* Styling voor de LinkedIn knop */
         .linkedin-btn {
             display: inline-block;
             margin-top: 1.5rem;
@@ -101,19 +114,30 @@
             padding-bottom: 0.75rem;
         }
 
-        .item {
+        /* Styling voor gegroepeerde items */
+        .grouped-card {
             margin-bottom: 2rem;
         }
 
-        .item:last-child {
-            margin-bottom: 0;
+        .employer-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-main);
         }
 
-        .item-header {
+        .grouped-list {
+            list-style-type: none;
+        }
+
+        .grouped-list li {
+            margin-bottom: 1rem;
+        }
+
+        .item-row {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
+            align-items: center;
             flex-wrap: wrap;
             gap: 10px;
         }
@@ -132,7 +156,7 @@
             font-weight: 600;
         }
 
-        /* Styling voor de skills tags */
+        /* Skills tags */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -149,7 +173,7 @@
             font-weight: 600;
         }
 
-        /* Lijst opmaak voor certificeringen */
+        /* Certificeringen lijst */
         .cert-list {
             list-style-type: none;
         }
@@ -179,6 +203,7 @@
 
     <div class="container">
         <header>
+            <img src="/PORTRAIT.jpg" alt="Stef Beukers Profielfoto" class="profile-pic">
             <h1>Stef <span>Beukers</span></h1>
             <p class="subtitle">Senior Business Analist | Arnhem, NL</p>
             <a href="https://www.linkedin.com/in/stefbeukers/" target="_blank" class="linkedin-btn">Connect op LinkedIn</a>
@@ -186,34 +211,36 @@
 
         <section class="section">
             <h2>Over Mij</h2>
-            <p>Als Senior Business Analist sla ik de brug tussen complexe processen en heldere communicatie. Met mijn achtergrond in communicatiewetenschap en jarenlange ervaring binnen het UWV, ben ik gedreven in het vertalen van behoeftes naar werkbare oplossingen. [Dit is een voorzetje, pas dit gerust aan met je eigen woorden!]</p>
+            <p>Als Senior Business Analist sla ik de brug tussen complexe processen en heldere communicatie. Met mijn achtergrond in communicatiewetenschap en jarenlange ervaring binnen het UWV, ben ik gedreven in het vertalen van behoeftes naar werkbare oplossingen. [Dit is een placeholder, pas dit gerust aan]</p>
         </section>
 
         <section class="section">
             <h2>Werkervaring</h2>
-            
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Senior Business Analist — UWV</span>
-                    <span class="item-date">2023 - Heden</span>
-                </div>
-                <p>Korte beschrijving van je huidige strategische of leidinggevende taken en projecten.</p>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Business Analist — UWV</span>
-                    <span class="item-date">2018 - 2023</span>
-                </div>
-                <p>Korte beschrijving van je verantwoordelijkheden gedurende deze periode.</p>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Trainee — UWV</span>
-                    <span class="item-date">2017 - 2018</span>
-                </div>
-                <p>Korte beschrijving van je start en ontwikkeling binnen de organisatie.</p>
+            <div class="grouped-card">
+                <div class="employer-header">UWV</div>
+                <ul class="grouped-list">
+                    <li>
+                        <div class="item-row">
+                            <span class="item-title">Senior business analist</span>
+                            <span class="item-date">2023 - Heden</span>
+                        </div>
+                        <p>Korte beschrijving van je huidige strategische of leidinggevende taken en projecten.</p>
+                    </li>
+                    <li>
+                        <div class="item-row">
+                            <span class="item-title">Business analist</span>
+                            <span class="item-date">2018 - 2023</span>
+                        </div>
+                        <p>Korte beschrijving van je verantwoordelijkheden gedurende deze periode.</p>
+                    </li>
+                    <li>
+                        <div class="item-row">
+                            <span class="item-title">Trainee</span>
+                            <span class="item-date">2017 - 2018</span>
+                        </div>
+                        <p>Korte beschrijving van je start en ontwikkeling binnen de organisatie.</p>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -239,19 +266,22 @@
 
         <section class="section">
             <h2>Opleidingen</h2>
-            
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">MSc Communicatiewetenschap — Radboud Universiteit Nijmegen</span>
-                    <span class="item-date">2016 - 2017</span>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">BSc Communicatiewetenschap — Radboud Universiteit Nijmegen</span>
-                    <span class="item-date">2012 - 2016</span>
-                </div>
+            <div class="grouped-card">
+                <div class="employer-header">Radboud Universiteit Nijmegen</div>
+                <ul class="grouped-list">
+                    <li>
+                        <div class="item-row">
+                            <span class="item-title">MSc Communicatiewetenschap</span>
+                            <span class="item-date">2016 - 2017</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-row">
+                            <span class="item-title">BSc Communicatiewetenschap</span>
+                            <span class="item-date">2012 - 2016</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
 
