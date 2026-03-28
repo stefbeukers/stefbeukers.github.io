@@ -3,27 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mijn Hippe CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <title>CV Stef Beukers - Senior Business Analist</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        /* Nieuw pastel kleurenpalet */
         :root {
-            --bg-color: #f4e8c1;
-            --accent-pink: #ff5277;
-            --accent-blue: #4d96ff;
-            --accent-green: #00e5ff;
-            --accent-yellow: #ffde59;
-            --text-color: #111;
-            --border-style: 4px solid var(--text-color);
-            --box-shadow: 6px 6px 0px var(--text-color);
+            --bg-color: #fdfbf7;        /* Zachte pastel-crème achtergrond */
+            --text-main: #4a4a4a;       /* Zacht donkergrijs voor prettige leesbaarheid */
+            --text-light: #7a7a7a;      /* Lichtere tekstkleur */
+            --accent-color: #79a3b1;    /* Pastel grijsblauw/teal accentkleur */
+            --accent-light: #e6eef1;    /* Zeer lichte variant van de accentkleur */
+            --card-bg: #ffffff;         /* Helderwit voor de blokken om contrast te houden */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
+            color: var(--text-main);
             line-height: 1.6;
+            padding: 3rem 1rem;
         }
 
         .container {
@@ -31,164 +36,224 @@
             margin: 0 auto;
         }
 
-        .card {
-            background-color: white;
-            border: var(--border-style);
-            box-shadow: var(--box-shadow);
-            padding: 30px;
-            margin-bottom: 40px;
-            border-radius: 8px;
-            transition: transform 0.2s ease;
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1s ease-out;
         }
 
-        .card:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 8px 8px 0px var(--text-color);
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
         }
 
-        .header-card { background-color: var(--accent-green); text-align: center; }
-        .experience-card { background-color: white; }
-        .education-card { background-color: var(--accent-yellow); }
-        .certs-card { background-color: white; }
-        .skills-card { background-color: var(--accent-pink); color: white; }
-
-        h1 { font-size: 3em; margin: 0 0 10px 0; text-transform: uppercase; }
-        h2 { border-bottom: var(--border-style); padding-bottom: 10px; margin-top: 0; text-transform: uppercase; }
+        h1 span {
+            color: var(--accent-color);
+        }
 
         .subtitle {
-            font-size: 1.2em;
-            font-weight: bold;
-            background-color: var(--text-color);
-            color: white;
+            font-size: 1.25rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* Styling voor de LinkedIn knop */
+        .linkedin-btn {
             display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.5rem;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .job { margin-bottom: 25px; }
-        .job h3 { margin: 0; font-size: 1.4em; color: var(--accent-blue); text-shadow: 1px 1px 0px black; }
-        
-        .job-date {
-            font-weight: bold;
-            font-size: 0.9em;
-            border: 2px solid var(--text-color);
-            padding: 2px 8px;
-            border-radius: 4px;
-            background-color: var(--bg-color);
-            display: inline-block;
-            margin-bottom: 10px;
-            color: var(--text-color);
+        .linkedin-btn:hover {
+            background-color: #638996;
+            transform: translateY(-2px);
         }
 
-        .edu-date {
-            background-color: white;
+        .section {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        ul.cert-list {
-            list-style-type: none;
-            padding-left: 0;
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
         }
 
-        ul.cert-list li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
+        h2 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-light);
+            padding-bottom: 0.75rem;
         }
 
-        ul.cert-list li::before {
-            content: "👉";
-            position: absolute;
-            left: 0;
+        .item {
+            margin-bottom: 2rem;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 1.15rem;
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background: var(--accent-light);
+            padding: 0.3rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        /* Styling voor de skills tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
         .skill-tag {
-            display: inline-block;
-            background-color: var(--text-color);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            margin: 5px;
-            font-weight: bold;
-            border: 2px solid white;
+            background: #ffffff;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        a { color: var(--text-color); text-decoration: none; font-weight: bold; border-bottom: 3px solid var(--accent-pink); }
-        a:hover { background-color: var(--accent-pink); color: white; }
+        /* Lijst opmaak voor certificeringen */
+        .cert-list {
+            list-style-type: none;
+        }
+        
+        .cert-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
-        <div class="card header-card">
-            <h1>Jouw Naam</h1>
-            <div class="subtitle">Senior Business Analist</div>
-            <p>Bruggenbouwer tussen business en IT. Ik vertaal complexe vraagstukken naar werkbare oplossingen.</p>
-        </div>
+        <header>
+            <h1>Stef <span>Beukers</span></h1>
+            <p class="subtitle">Senior Business Analist | Arnhem, NL</p>
+            <a href="https://www.linkedin.com/in/stefbeukers/" target="_blank" class="linkedin-btn">Connect op LinkedIn</a>
+        </header>
 
-        <div class="card">
-            <h2>Let's Connect</h2>
-            <p>
-                📍 Woonplaats: Arnhem, Nederland<br>
-                📧 Email: <a href="mailto:hallo@jouwemail.nl">hallo@jouwemail.nl</a><br>
-                🔗 LinkedIn: <a href="#">linkedin.com/in/jouwprofiel</a>
-            </p>
-        </div>
+        <section class="section">
+            <h2>Over Mij</h2>
+            <p>Als Senior Business Analist sla ik de brug tussen complexe processen en heldere communicatie. Met mijn achtergrond in communicatiewetenschap en jarenlange ervaring binnen het UWV, ben ik gedreven in het vertalen van behoeftes naar werkbare oplossingen. [Dit is een voorzetje, pas dit gerust aan met je eigen woorden!]</p>
+        </section>
 
-        <div class="card experience-card">
+        <section class="section">
             <h2>Werkervaring</h2>
             
-            <div class="job">
-                <h3>Sr. Business Analist</h3>
-                <div class="job-date">2023 - Heden | UWV</div>
-                <p><em>[Korte omschrijving van je huidige senior verantwoordelijkheden, projecten die je leidt en de impact die je maakt.]</em></p>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Senior Business Analist — UWV</span>
+                    <span class="item-date">2023 - Heden</span>
+                </div>
+                <p>Korte beschrijving van je huidige strategische of leidinggevende taken en projecten.</p>
             </div>
 
-            <div class="job">
-                <h3>Business Analist</h3>
-                <div class="job-date">2018 - 2023 | UWV</div>
-                <p><em>[Omschrijving van je werkzaamheden in deze periode. Denk aan procesoptimalisatie, requirements gathering en stakeholder management.]</em></p>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Business Analist — UWV</span>
+                    <span class="item-date">2018 - 2023</span>
+                </div>
+                <p>Korte beschrijving van je verantwoordelijkheden gedurende deze periode.</p>
             </div>
 
-            <div class="job">
-                <h3>Trainee Informatievoorziening</h3>
-                <div class="job-date">2017 - 2018 | UWV</div>
-                <p><em>[Korte omschrijving van je start bij het UWV en de projecten waaraan je werkte tijdens je traineeship.]</em></p>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Trainee — UWV</span>
+                    <span class="item-date">2017 - 2018</span>
+                </div>
+                <p>Korte beschrijving van je start en ontwikkeling binnen de organisatie.</p>
             </div>
-        </div>
+        </section>
 
-        <div class="card education-card">
-            <h2>Opleidingen</h2>
-            
-            <div class="job">
-                <h3>MSc Communicatiewetenschap</h3>
-                <div class="job-date edu-date">2016 - 2017 | Radboud Universiteit Nijmegen</div>
+        <section class="section">
+            <h2>Skills & Tools</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Atlassian Confluence</span>
+                <span class="skill-tag">Atlassian Jira</span>
+                <span class="skill-tag">Bizzdesign Horizzon</span>
+                <span class="skill-tag">Microsoft 365</span>
             </div>
+        </section>
 
-            <div class="job">
-                <h3>BSc Communicatiewetenschap</h3>
-                <div class="job-date edu-date">2012 - 2016 | Radboud Universiteit Nijmegen</div>
-            </div>
-        </div>
-
-        <div class="card certs-card">
+        <section class="section">
             <h2>Certificeringen</h2>
             <ul class="cert-list">
-                <li><strong>EXIN:</strong> BCS Practitioner in Business Analysis</li>
-                <li><strong>EXIN:</strong> BCS Foundation in Business Analysis</li>
-                <li><strong>Scaled Agile:</strong> SAFe 5 Agilist</li>
-                <li><strong>Bizzdesign:</strong> BPMN Foundation</li>
+                <li>EXIN BCS Practicioner in Business Analysis</li>
+                <li>EXIN BCS Foundation in Business Analysis</li>
+                <li>Scaled Agile SAFe 5 Agilist</li>
+                <li>Bizzdesign BPMN Foundation</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="card skills-card">
-            <h2 style="border-bottom-color: white;">Tools & Software</h2>
-            <div>
-                <span class="skill-tag">Microsoft 365</span>
-                <span class="skill-tag">Atlassian Jira</span>
-                <span class="skill-tag">Atlassian Confluence</span>
+        <section class="section">
+            <h2>Opleidingen</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">MSc Communicatiewetenschap — Radboud Universiteit Nijmegen</span>
+                    <span class="item-date">2016 - 2017</span>
+                </div>
             </div>
-        </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">BSc Communicatiewetenschap — Radboud Universiteit Nijmegen</span>
+                    <span class="item-date">2012 - 2016</span>
+                </div>
+            </div>
+        </section>
 
     </div>
 
