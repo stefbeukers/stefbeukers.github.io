@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Stef Beukers - Senior Business Analist</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        /* Pastel kleurenpalet */
+        :root {
+            --bg-color: #fdfbf7;
+            --text-main: #4a4a4a;
+            --text-light: #7a7a7a;
+            --accent-color: #79a3b1;
+            --accent-light: #e6eef1;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 3rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-light);
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        h1 span {
+            color: var(--accent-color);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        .linkedin-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.5rem;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .linkedin-btn:hover {
+            background-color: #638996;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-light);
+            padding-bottom: 0.75rem;
+        }
+
+        .grouped-card {
+            margin-bottom: 2rem;
+        }
+
+        .employer-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .grouped-list {
+            list-style-type: none;
+        }
+
+        .grouped-list li {
+            margin-bottom: 1rem;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 1.15rem;
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background: var(--accent-light);
+            padding: 0.3rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: #ffffff;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .cert-list {
+            list-style-type: none;
+        }
+        
+        .cert-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- PRINT STYLESHEET --- */
+        @media print {
+            body {
+                /* Forceer browsers om achtergrondkleuren te printen/op te slaan */
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: var(--bg-color);
+                padding: 0; /* Haal onnodige witruimte aan de randen weg */
+            }
+
+            .container {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .section {
+                box-shadow: none !important; /* Verwijder schaduwen voor een strakker resultaat */
+                border: 1px solid #e2e8f0; /* Voeg een subtiel randje toe als scheiding */
+                break-inside: avoid; /* Voorkom dat een blok halverwege de pagina afbreekt */
+                padding: 2rem;
+                margin-bottom: 1.5rem;
+                transform: none !important; /* Schakel hover effecten uit voor de zekerheid */
+            }
+
+            header {
+                margin-bottom: 2rem;
+            }
+
+            .linkedin-btn {
+                /* Haal hover animaties weg voor print */
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="/PORTRAIT.jpg" alt="Stef Beukers Profielfoto" class="profile-pic">
+            <h1>Stef <span>Beukers</span></h1>
+            <p class="subtitle">Senior Business Analist | Arnhem, NL</p>
+            <a href="https://www.linkedin.com/in/stefbeukers/" target="_blank" class="linkedin-btn">Connect op LinkedIn</a>
+        </header>
+
+        <section class="section">
+            <h2>Over mij</h2>
+            <p>Als Senior Business Analist sla ik de brug tussen complexe bedrijfsprocessen en heldere softwareoplossingen. Binnen een dynamisch agile team richt ik mij specifiek op middleware applicaties—de cruciale schakel tussen front-end en back-end. Mijn kracht ligt in het écht luisteren naar stakeholders en het vertalen van hun behoeften naar de techniek. Door mijn technische en analytische kennis gericht in te zetten, zorg ik ervoor dat we niet alleen software bouwen, maar de dienstverlening aan onze cliënten daadwerkelijk en meetbaar verbeteren.</p>
+        </section>
+
+        <section class="section">
+            <h2>Ervaring</h2>
+            <div class="grouped-card">
+                <div class="employer-header">UWV</div>
+                <ul class="grouped-list">
+                    <li>
+                        <div class="item-row">
+                            <span class="item-title">Senior business analist</span>
+                            <span class="item-date">2023 - Heden</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-row">
+                            <span class="item-title">Business analist</span>
+                            <span class="item-date">2018 - 2023</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-row">
+                            <span class="item-title">Trainee</span>
+                            <span class="item-date">2017 - 2018</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Certificering</h2>
+            <ul class="cert-list">
+                <li>EXIN BCS Practicioner in Business Analysis</li>
+                <li>EXIN BCS Foundation in Business Analysis</li>
+                <li>Scaled Agile SAFe 5 Agilist</li>
+                <li>Bizzdesign BPMN Foundation</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Opleiding</h2>
+            <div class="grouped-card">
+                <div class="employer-header">Radboud Universiteit Nijmegen</div>
+                <ul class="grouped-list">
+                    <li>
+                        <div class="item-row">
+                            <span class="item-title">MSc Communicatiewetenschap</span>
+                            <span class="item-date">2016 - 2017</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-row">
+                            <span class="item-title">BSc Communicatiewetenschap</span>
+                            <span class="item-date">2012 - 2016</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Atlassian Confluence</span>
+                <span class="skill-tag">Atlassian Jira</span>
+                <span class="skill-tag">Bizzdesign Horizzon</span>
+                <span class="skill-tag">Microsoft 365</span>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
