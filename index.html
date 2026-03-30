@@ -4,165 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stef Beukers - Sr. Business Analist</title>
-<style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+    <style>
+        /* Import van de Google Fonts: Inter (leesbaar) en JetBrains Mono (tech-vibe) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700;800&display=swap');
 
         :root {
-            --bg-color: #f4f4f0;        /* Papier-achtig wit */
-            --text-main: #111111;       /* Diepzwart */
-            --text-light: #444444;      /* Donkergrijs */
-            --accent-color: #ff3e3e;    /* Knallend rood/koraal */
-            --card-bg: #ffffff;
+            --bg-color: #ffffff;          /* Veel witruimte */
+            --text-main: #1e293b;         /* Antraciet voor goede leesbaarheid */
+            --text-muted: #64748b;        /* Zachtgrijs voor subtitels */
+            --accent-color: #0ea5e9;      /* Helder 'communicatie' blauw */
+            --border-color: #e2e8f0;      /* Subtiele lijnen */
+            
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Space Grotesk', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding: 3rem 1rem; }
-        .container { max-width: 800px; margin: 0 auto; }
         
-        header { text-align: center; margin-bottom: 4rem; animation: fadeInDown 1s ease-out; display: flex; flex-direction: column; align-items: center; }
-        .profile-pic { width: 120px; height: 120px; border-radius: 0; object-fit: cover; border: 3px solid #000; margin-bottom: 2rem; box-shadow: 6px 6px 0px var(--accent-color); transition: transform 0.2s ease; }
-        .profile-pic:hover { transform: translate(2px, 2px); box-shadow: 4px 4px 0px var(--accent-color); }
-        h1 { font-size: 3.5rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 0.5rem; text-transform: uppercase; }
+        body { 
+            font-family: var(--font-sans); 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            line-height: 1.7; 
+            padding: 5rem 2rem; 
+        }
+        
+        .container { 
+            max-width: 850px; 
+            margin: 0 auto; 
+        }
+
+        /* Hero Sectie */
+        header { 
+            margin-bottom: 5rem; 
+        }
+        
+        h1 { 
+            font-family: var(--font-sans); 
+            font-size: 3.5rem; 
+            font-weight: 600; 
+            letter-spacing: -1px; 
+            margin-bottom: 0.5rem; 
+        }
+        
         h1 span { color: var(--accent-color); }
-        .subtitle { font-size: 1.25rem; color: var(--text-light); font-weight: 600; border: 2px solid #000; padding: 0.2rem 1rem; display: inline-block; background: #fff; }
         
-        .linkedin-btn { display: inline-block; margin-top: 1.5rem; padding: 0.8rem 1.5rem; background-color: var(--accent-color); color: #fff; text-decoration: none; font-weight: 700; border: 3px solid #000; box-shadow: 4px 4px 0px #000; transition: all 0.1s ease; text-transform: uppercase; }
-        .linkedin-btn:hover { transform: translate(4px, 4px); box-shadow: 0px 0px 0px #000; }
-
-        .section { background: var(--card-bg); padding: 2.5rem; border: 3px solid #000; box-shadow: 8px 8px 0px #000; margin-bottom: 3rem; }
-        h2 { font-size: 1.7rem; color: #111; margin-bottom: 2rem; border-bottom: 3px solid #000; padding-bottom: 0.5rem; text-transform: uppercase; font-weight: 700; }
-
-        .grouped-card { margin-bottom: 2.5rem; }
+        .subtitle { 
+            font-family: var(--font-mono);
+            font-size: 1.1rem; 
+            color: var(--text-muted); 
+            margin-bottom: 2.5rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 1.5rem; 
+        }
         
-        /* HIERARCHIE UPDATE: De werkgever/school als stoer label */
-        .employer-header { 
-            display: inline-block;
-            font-size: 1.3rem; 
-            font-weight: 700; 
-            margin-bottom: 1.5rem; 
+        /* De horizontale lijn naast je functietitel */
+        .subtitle::after { 
+            content: ""; 
+            flex-grow: 1; 
+            height: 1px; 
+            background: var(--border-color); 
+        }
+
+        .quote-box { 
+            background: #f8fafc; 
+            border-left: 3px solid var(--accent-color); 
+            padding: 1.5rem 2rem; 
+            font-family: var(--font-mono); 
+            font-size: 0.95rem; 
+            color: var(--text-muted); 
+            line-height: 1.8;
+            border-radius: 0 8px 8px 0; 
+            max-width: 600px;
+        }
+        
+        /* Sectie Styling */
+        section { 
+            margin-bottom: 4rem; 
+        }
+        
+        h2 { 
+            font-family: var(--font-mono); 
+            font-size: 1.1rem; 
             text-transform: uppercase; 
-            background-color: #111; 
-            color: #fff; 
-            padding: 0.4rem 1rem;
-            border: 2px solid #000;
-            box-shadow: 4px 4px 0px var(--accent-color);
-            transform: rotate(-1.5deg); /* Subtiele draaiing */
+            letter-spacing: 2px; 
+            color: var(--text-main); 
+            margin-bottom: 2.5rem; 
         }
         
-        .grouped-list { list-style-type: none; }
-        .grouped-list li { margin-bottom: 2rem; }
-        .item-row { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px; margin-bottom: 0.5rem; }
+        h2::before { 
+            content: "// "; 
+            color: var(--accent-color); 
+        }
+
+        /* Tijdlijn (Grid Layout voor overzicht) */
+        .timeline-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 3rem; 
+        }
         
-        /* HIERARCHIE UPDATE: Functie krijgt een opvallende onderstreping */
-        .item-title { 
+        @media (min-width: 650px) { 
+            .timeline-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } 
+        }
+        
+        .timeline-block { 
+            border-top: 2px solid var(--text-main); 
+            padding-top: 1.5rem; 
+        }
+        
+        .org-name { 
+            font-family: var(--font-mono); 
             font-weight: 700; 
-            font-size: 1.2rem; 
-            border-bottom: 3px solid var(--accent-color);
-            padding-bottom: 2px;
+            font-size: 1.1rem; 
+            margin-bottom: 2rem; 
+            color: var(--accent-color); 
         }
         
-        .item-date { font-size: 0.85rem; color: #000; background: #fff; border: 2px solid #000; padding: 0.2rem 0.6rem; font-weight: 700; box-shadow: 2px 2px 0px var(--accent-color); height: fit-content; }
-
-        .skills-container { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-        .skill-tag { background: #fff; border: 2px solid #000; color: #111; padding: 0.4rem 1rem; font-size: 0.9rem; font-weight: 700; box-shadow: 3px 3px 0px #000; transition: all 0.1s; }
-        .skill-tag:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #000; }
-        
-        .cert-list { list-style-type: none; }
-        .cert-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; font-weight: 600; }
-        .cert-list li::before { content: "→"; color: var(--accent-color); position: absolute; left: 0; font-weight: bold; }
-
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media print {
-            body { background-color: #ffffff !important; }
-            .section { box-shadow: none !important; break-inside: avoid; margin-bottom: 1.5rem; }
-            .linkedin-btn, .skill-tag, .item-date { box-shadow: none !important; }
-            .profile-pic { box-shadow: none !important; }
-            /* Zorg dat de printversie geen inkt verspilt aan het zwarte label */
-            .employer-header { background-color: #fff !important; color: #000 !important; box-shadow: none !important; transform: none !important; }
+        .role-item { 
+            margin-bottom: 1.8rem; 
         }
+        
+        .role-title { 
+            font-weight: 600; 
+            font-size: 1.15rem; 
+            margin-bottom: 0.2rem; 
+        }
+        
+        .role-date { 
+            font-family: var(--font-mono); 
+            font-size: 0.85rem; 
+            color: var(--text-muted); 
+        }
+
+        /* Skills */
+        .skills-wrapper { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 1rem; 
+        }
+        
+        .skill { 
+            font-family: var(--font-mono); 
+            font-size: 0.9rem; 
+            padding: 0.6rem 1.2rem; 
+            border: 1px solid var(--border-color); 
+            border-radius: 4px; 
+            color: var(--text-muted); 
+            transition: all 0.2s ease; 
+        }
+        
+        .skill:hover { 
+            border-color: var(--accent-color); 
+            color: var(--accent-color); 
+            background: #f0f9ff;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
+        
         <header>
-            <img src="/PORTRAIT.jpg" alt="Stef Beukers Profielfoto" class="profile-pic">
             <h1>Stef <span>Beukers</span></h1>
-            <p class="subtitle">Senior Business Analist | Arnhem, NL</p>
-            <a href="https://www.linkedin.com/in/stefbeukers/" target="_blank" class="linkedin-btn">Connect op LinkedIn</a>
+            <div class="subtitle">Senior Business Analist</div>
+            
+            <div class="quote-box">
+                "Knowledge is knowing that a tomato is a fruit.<br>
+                Wisdom is knowing not to put it in a fruit salad."
+            </div>
         </header>
 
-        <section class="section">
-            <h2>Over mij</h2>
-            <p>Als Senior Business Analist sla ik de brug tussen complexe bedrijfsprocessen en heldere softwareoplossingen. Binnen een dynamisch agile team richt ik mij specifiek op middleware applicaties—de cruciale schakel tussen front-end en back-end. Mijn kracht ligt in het écht luisteren naar stakeholders en het vertalen van hun behoeften naar de techniek. Door mijn technische en analytische kennis gericht in te zetten, zorg ik ervoor dat we niet alleen software bouwen, maar de dienstverlening aan onze cliënten daadwerkelijk en meetbaar verbeteren.</p>
-        </section>
+        <section>
+            <h2>Ervaring & Opleiding</h2>
+            
+            <div class="timeline-grid">
+                
+                <div class="timeline-block">
+                    <div class="org-name">UWV</div>
+                    
+                    <div class="role-item">
+                        <div class="role-title">Senior Business Analist</div>
+                        <div class="role-date">2023 - HEDEN</div>
+                    </div>
+                    
+                    <div class="role-item">
+                        <div class="role-title">Business Analist</div>
+                        <div class="role-date">2018 - 2023</div>
+                    </div>
+                    
+                    <div class="role-item">
+                        <div class="role-title">Trainee</div>
+                        <div class="role-date">2017 - 2018</div>
+                    </div>
+                </div>
 
-        <section class="section">
-            <h2>Ervaring</h2>
-            <div class="grouped-card">
-                <div class="employer-header">UWV</div>
-                <ul class="grouped-list">
-                    <li>
-                        <div class="item-row">
-                            <span class="item-title">Senior business analist</span>
-                            <span class="item-date">2023 - Heden</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-row">
-                            <span class="item-title">Business analist</span>
-                            <span class="item-date">2018 - 2023</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-row">
-                            <span class="item-title">Trainee</span>
-                            <span class="item-date">2017 - 2018</span>
-                        </div>
-                    </li>
-                </ul>
+                <div class="timeline-block">
+                    <div class="org-name">Radboud Universiteit</div>
+                    
+                    <div class="role-item">
+                        <div class="role-title">MSc Communicatiewetenschap</div>
+                        <div class="role-date">2016 - 2017</div>
+                    </div>
+                    
+                    <div class="role-item">
+                        <div class="role-title">BSc Communicatiewetenschap</div>
+                        <div class="role-date">2012 - 2016</div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section class="section">
-            <h2>Certificering</h2>
-            <ul class="cert-list">
-                <li>EXIN BCS Practicioner in Business Analysis</li>
-                <li>EXIN BCS Foundation in Business Analysis</li>
-                <li>Scaled Agile SAFe 5 Agilist</li>
-                <li>Bizzdesign BPMN Foundation</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Opleiding</h2>
-            <div class="grouped-card">
-                <div class="employer-header">Radboud Universiteit Nijmegen</div>
-                <ul class="grouped-list">
-                    <li>
-                        <div class="item-row">
-                            <span class="item-title">MSc Communicatiewetenschap</span>
-                            <span class="item-date">2016 - 2017</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-row">
-                            <span class="item-title">BSc Communicatiewetenschap</span>
-                            <span class="item-date">2012 - 2016</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Atlassian Confluence</span>
-                <span class="skill-tag">Atlassian Jira</span>
-                <span class="skill-tag">Bizzdesign Horizzon</span>
-                <span class="skill-tag">Microsoft 365</span>
+        <section>
+            <h2>Tech Stack & Tools</h2>
+            <div class="skills-wrapper">
+                <div class="skill">Atlassian Confluence</div>
+                <div class="skill">Atlassian Jira</div>
+                <div class="skill">Bizzdesign Horizzon</div>
+                <div class="skill">Microsoft 365</div>
             </div>
         </section>
 
