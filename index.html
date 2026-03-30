@@ -11,7 +11,7 @@
             --bg-color: #ffffff;          
             --text-main: #1e293b;         
             --text-muted: #64748b;        
-            --accent-color: #FF6F61;      /* Prachtige Koraal kleur */
+            --accent-color: #FF6F61;      /* Koraal */
             --border-color: #e2e8f0;      
             
             --font-mono: 'JetBrains Mono', monospace;
@@ -237,11 +237,16 @@
             line-height: 1.2;
         }
 
-        /* --- Skills --- */
+        /* --- Skills Grid (Drie per rij) --- */
         .skills-wrapper { 
-            display: flex; 
-            flex-wrap: wrap; 
+            display: grid; 
+            grid-template-columns: 1fr;
             gap: 1rem; 
+        }
+        @media (min-width: 600px) {
+            .skills-wrapper {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
         .skill { 
@@ -252,6 +257,7 @@
             border-radius: 4px; 
             color: var(--text-muted); 
             transition: all 0.2s ease; 
+            text-align: center;
         }
         
         .skill:hover { 
@@ -269,6 +275,7 @@
             .timeline-node { width: 100%; margin-bottom: 2rem; border-top: none; padding-right: 0; text-align: left; padding-left: 1.5rem; border-left: 2px solid var(--border-color); }
             .node-dot { right: auto; left: -8px; }
             .timeline-node.edu-node { border-left-style: dashed; }
+            .skills-wrapper { grid-template-columns: repeat(3, 1fr); }
         }
 
     </style>
@@ -316,7 +323,7 @@
             <div class="timeline-node">
                 <div class="node-dot"></div>
                 <div class="role-date">2017 - 2018</div>
-                <div class="role-title">Trainee</div>
+                <div class="role-title">Trainee IV</div>
                 <div class="org-name">UWV</div>
             </div>
 
@@ -324,14 +331,14 @@
                 <div class="node-dot"></div>
                 <div class="role-date">2016 - 2017</div>
                 <div class="role-title">MSc Communicatiewetenschap</div>
-                <div class="org-name">Radboud Universiteit</div>
+                <div class="org-name">Radboud Universiteit Nijmegen</div>
             </div>
             
             <div class="timeline-node edu-node">
                 <div class="node-dot"></div>
                 <div class="role-date">2012 - 2016</div>
                 <div class="role-title">BSc Communicatiewetenschap</div>
-                <div class="org-name">Radboud Universiteit</div>
+                <div class="org-name">Radboud Universiteit Nijmegen</div>
             </div>
 
         </div>
