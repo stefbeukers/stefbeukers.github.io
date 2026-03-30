@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stef Beukers - Sr. Business Analist</title>
     <style>
-        /* Import van de Google Fonts: Inter (leesbaar) en JetBrains Mono (tech-vibe) */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700;800&display=swap');
 
         :root {
-            --bg-color: #ffffff;          /* Veel witruimte */
-            --text-main: #1e293b;         /* Antraciet voor goede leesbaarheid */
-            --text-muted: #64748b;        /* Zachtgrijs voor subtitels */
-            --accent-color: #0ea5e9;      /* Helder 'communicatie' blauw */
-            --border-color: #e2e8f0;      /* Subtiele lijnen */
+            --bg-color: #ffffff;          
+            --text-main: #1e293b;         
+            --text-muted: #64748b;        
+            --accent-color: #0ea5e9;      
+            --border-color: #e2e8f0;      
             
             --font-mono: 'JetBrains Mono', monospace;
             --font-sans: 'Inter', sans-serif;
@@ -30,12 +29,16 @@
         }
         
         .container { 
-            max-width: 850px; 
+            max-width: 900px; 
             margin: 0 auto; 
         }
 
-        /* Hero Sectie */
+        /* --- Header: Gecentreerd --- */
         header { 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             margin-bottom: 5rem; 
         }
         
@@ -54,32 +57,23 @@
             font-size: 1.1rem; 
             color: var(--text-muted); 
             margin-bottom: 2.5rem; 
-            display: flex; 
-            align-items: center; 
-            gap: 1.5rem; 
-        }
-        
-        /* De horizontale lijn naast je functietitel */
-        .subtitle::after { 
-            content: ""; 
-            flex-grow: 1; 
-            height: 1px; 
-            background: var(--border-color); 
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .quote-box { 
             background: #f8fafc; 
-            border-left: 3px solid var(--accent-color); 
+            border-top: 3px solid var(--accent-color); 
             padding: 1.5rem 2rem; 
             font-family: var(--font-mono); 
             font-size: 0.95rem; 
             color: var(--text-muted); 
             line-height: 1.8;
-            border-radius: 0 8px 8px 0; 
-            max-width: 600px;
+            border-radius: 0 0 8px 8px; 
+            max-width: 650px;
         }
         
-        /* Sectie Styling */
+        /* --- Algemene Secties --- */
         section { 
             margin-bottom: 4rem; 
         }
@@ -90,7 +84,7 @@
             text-transform: uppercase; 
             letter-spacing: 2px; 
             color: var(--text-main); 
-            margin-bottom: 2.5rem; 
+            margin-bottom: 2rem; 
         }
         
         h2::before { 
@@ -98,47 +92,78 @@
             color: var(--accent-color); 
         }
 
-        /* Tijdlijn (Grid Layout voor overzicht) */
-        .timeline-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 3rem; 
+        /* --- Horizontale Tijdlijn --- */
+        .track-title {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        
-        @media (min-width: 650px) { 
-            .timeline-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } 
+
+        .horizontal-track {
+            display: flex;
+            overflow-x: auto;
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            /* Styling voor de horizontale scrollbalk */
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) transparent;
         }
-        
-        .timeline-block { 
-            border-top: 2px solid var(--text-main); 
-            padding-top: 1.5rem; 
+
+        .horizontal-track::-webkit-scrollbar {
+            height: 6px;
         }
-        
-        .org-name { 
-            font-family: var(--font-mono); 
-            font-weight: 700; 
-            font-size: 1.1rem; 
-            margin-bottom: 2rem; 
-            color: var(--accent-color); 
+        .horizontal-track::-webkit-scrollbar-thumb {
+            background-color: var(--border-color);
+            border-radius: 10px;
         }
-        
-        .role-item { 
-            margin-bottom: 1.8rem; 
+
+        .timeline-node {
+            flex: 0 0 280px; /* Vaste breedte per item, past zich aan bij scrollen */
+            position: relative;
+            border-top: 2px solid var(--border-color);
+            padding-top: 1.5rem;
+            padding-right: 2rem;
         }
-        
-        .role-title { 
-            font-weight: 600; 
-            font-size: 1.15rem; 
-            margin-bottom: 0.2rem; 
+
+        /* Het bolletje op de tijdlijn */
+        .node-dot {
+            position: absolute;
+            top: -8px; 
+            left: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--bg-color);
+            border: 3px solid var(--accent-color);
+            border-radius: 50%;
+            z-index: 1;
         }
-        
+
         .role-date { 
             font-family: var(--font-mono); 
             font-size: 0.85rem; 
             color: var(--text-muted); 
+            margin-bottom: 0.2rem;
         }
 
-        /* Skills */
+        .role-title { 
+            font-weight: 600; 
+            font-size: 1.1rem; 
+            color: var(--text-main);
+        }
+
+        .org-name { 
+            font-family: var(--font-mono); 
+            font-weight: 700; 
+            font-size: 0.9rem; 
+            color: var(--accent-color); 
+            margin-top: 0.5rem; 
+        }
+
+        /* --- Skills --- */
         .skills-wrapper { 
             display: flex; 
             flex-wrap: wrap; 
@@ -161,6 +186,13 @@
             background: #f0f9ff;
         }
 
+        /* Print weergave optimalisatie */
+        @media print {
+            .horizontal-track { flex-wrap: wrap; overflow-x: visible; }
+            .timeline-node { flex: 1 1 200px; margin-bottom: 2rem; border-top: none; padding-top: 0; border-left: 2px solid var(--border-color); padding-left: 1.5rem; }
+            .node-dot { top: 0; left: -8px; }
+        }
+
     </style>
 </head>
 <body>
@@ -180,39 +212,47 @@
         <section>
             <h2>Ervaring & Opleiding</h2>
             
-            <div class="timeline-grid">
+            <div class="track-title">Werkervaring</div>
+            <div class="horizontal-track">
                 
-                <div class="timeline-block">
+                <div class="timeline-node">
+                    <div class="node-dot"></div>
+                    <div class="role-date">2023 - HEDEN</div>
+                    <div class="role-title">Senior Business Analist</div>
                     <div class="org-name">UWV</div>
-                    
-                    <div class="role-item">
-                        <div class="role-title">Senior Business Analist</div>
-                        <div class="role-date">2023 - HEDEN</div>
-                    </div>
-                    
-                    <div class="role-item">
-                        <div class="role-title">Business Analist</div>
-                        <div class="role-date">2018 - 2023</div>
-                    </div>
-                    
-                    <div class="role-item">
-                        <div class="role-title">Trainee</div>
-                        <div class="role-date">2017 - 2018</div>
-                    </div>
+                </div>
+                
+                <div class="timeline-node">
+                    <div class="node-dot"></div>
+                    <div class="role-date">2018 - 2023</div>
+                    <div class="role-title">Business Analist</div>
+                    <div class="org-name">UWV</div>
+                </div>
+                
+                <div class="timeline-node">
+                    <div class="node-dot"></div>
+                    <div class="role-date">2017 - 2018</div>
+                    <div class="role-title">Trainee</div>
+                    <div class="org-name">UWV</div>
                 </div>
 
-                <div class="timeline-block">
+            </div>
+
+            <div class="track-title">Opleiding</div>
+            <div class="horizontal-track">
+                
+                <div class="timeline-node">
+                    <div class="node-dot"></div>
+                    <div class="role-date">2016 - 2017</div>
+                    <div class="role-title">MSc Communicatiewetenschap</div>
                     <div class="org-name">Radboud Universiteit</div>
-                    
-                    <div class="role-item">
-                        <div class="role-title">MSc Communicatiewetenschap</div>
-                        <div class="role-date">2016 - 2017</div>
-                    </div>
-                    
-                    <div class="role-item">
-                        <div class="role-title">BSc Communicatiewetenschap</div>
-                        <div class="role-date">2012 - 2016</div>
-                    </div>
+                </div>
+                
+                <div class="timeline-node">
+                    <div class="node-dot"></div>
+                    <div class="role-date">2012 - 2016</div>
+                    <div class="role-title">BSc Communicatiewetenschap</div>
+                    <div class="org-name">Radboud Universiteit</div>
                 </div>
 
             </div>
