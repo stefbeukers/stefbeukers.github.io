@@ -20,17 +20,21 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
+        /* Body padding links/rechts is verwijderd om de full-width track ruimte te geven */
         body { 
             font-family: var(--font-sans); 
             background-color: var(--bg-color); 
             color: var(--text-main); 
             line-height: 1.7; 
-            padding: 5rem 2rem; 
+            padding: 5rem 0; 
+            overflow-x: hidden; /* Voorkomt een ongewenste scrollbalk op de hele pagina */
         }
         
+        /* Container krijgt nu de padding voor mobiele weergave */
         .container { 
             max-width: 900px; 
             margin: 0 auto; 
+            padding: 0 2rem;
         }
 
         /* --- Header: Gecentreerd --- */
@@ -75,7 +79,7 @@
         
         /* --- Algemene Secties --- */
         section { 
-            margin-bottom: 4rem; 
+            margin-bottom: 5rem; 
         }
         
         h2 { 
@@ -92,41 +96,46 @@
             color: var(--accent-color); 
         }
 
-        /* --- Horizontale Tijdlijn --- */
-        .track-title {
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        /* --- Horizontale Tijdlijn (Full Width) --- */
+        .timeline-section {
+            width: 100vw;
+            margin-bottom: 5rem;
         }
 
-        .horizontal-track {
+        .full-width-track {
             display: flex;
             overflow-x: auto;
-            padding-top: 1rem;
-            padding-bottom: 2rem;
-            margin-bottom: 2rem;
-            /* Styling voor de horizontale scrollbalk */
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+            
+            /* Zorgt dat het begin van de scroll uitlijnt met de container content */
+            padding-left: max(2rem, calc((100vw - 900px) / 2 + 2rem));
+            /* Zorgt dat je helemaal kunt doorscrollen tot het einde */
+            padding-right: max(2rem, calc((100vw - 900px) / 2 + 2rem));
+            
             scrollbar-width: thin;
             scrollbar-color: var(--border-color) transparent;
         }
 
-        .horizontal-track::-webkit-scrollbar {
+        .full-width-track::-webkit-scrollbar {
             height: 6px;
         }
-        .horizontal-track::-webkit-scrollbar-thumb {
+        .full-width-track::-webkit-scrollbar-thumb {
             background-color: var(--border-color);
             border-radius: 10px;
         }
 
         .timeline-node {
-            flex: 0 0 280px; /* Vaste breedte per item, past zich aan bij scrollen */
+            flex: 0 0 320px; /* Vaste breedte per item */
             position: relative;
             border-top: 2px solid var(--border-color);
             padding-top: 1.5rem;
-            padding-right: 2rem;
+            padding-right: 2.5rem;
+        }
+
+        /* Specifiek design voor de opleiding-nodes om ze iets te onderscheiden */
+        .timeline-node.edu-node {
+            border-top-style: dashed;
         }
 
         /* Het bolletje op de tijdlijn */
@@ -146,13 +155,14 @@
             font-family: var(--font-mono); 
             font-size: 0.85rem; 
             color: var(--text-muted); 
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
         }
 
         .role-title { 
             font-weight: 600; 
             font-size: 1.1rem; 
             color: var(--text-main);
+            line-height: 1.4;
         }
 
         .org-name { 
@@ -188,9 +198,12 @@
 
         /* Print weergave optimalisatie */
         @media print {
-            .horizontal-track { flex-wrap: wrap; overflow-x: visible; }
-            .timeline-node { flex: 1 1 200px; margin-bottom: 2rem; border-top: none; padding-top: 0; border-left: 2px solid var(--border-color); padding-left: 1.5rem; }
+            body { padding: 0; overflow: visible; }
+            .timeline-section { width: 100%; page-break-inside: avoid; margin-bottom: 2rem; }
+            .full-width-track { flex-wrap: wrap; overflow-x: visible; padding: 0 !important; }
+            .timeline-node { flex: 1 1 100%; margin-bottom: 2rem; border-top: none; padding-top: 0; border-left: 2px solid var(--border-color); padding-left: 1.5rem; }
             .node-dot { top: 0; left: -8px; }
+            .timeline-node.edu-node { border-left-style: dashed; }
         }
 
     </style>
@@ -198,7 +211,6 @@
 <body>
 
     <div class="container">
-        
         <header>
             <h1>Stef <span>Beukers</span></h1>
             <div class="subtitle">Senior Business Analist</div>
@@ -208,56 +220,54 @@
                 Wisdom is knowing not to put it in a fruit salad."
             </div>
         </header>
+    </div>
 
-        <section>
+    <section class="timeline-section">
+        <div class="container">
             <h2>Ervaring & Opleiding</h2>
+        </div>
+        
+        <div class="full-width-track">
             
-            <div class="track-title">Werkervaring</div>
-            <div class="horizontal-track">
-                
-                <div class="timeline-node">
-                    <div class="node-dot"></div>
-                    <div class="role-date">2023 - HEDEN</div>
-                    <div class="role-title">Senior Business Analist</div>
-                    <div class="org-name">UWV</div>
-                </div>
-                
-                <div class="timeline-node">
-                    <div class="node-dot"></div>
-                    <div class="role-date">2018 - 2023</div>
-                    <div class="role-title">Business Analist</div>
-                    <div class="org-name">UWV</div>
-                </div>
-                
-                <div class="timeline-node">
-                    <div class="node-dot"></div>
-                    <div class="role-date">2017 - 2018</div>
-                    <div class="role-title">Trainee</div>
-                    <div class="org-name">UWV</div>
-                </div>
-
+            <div class="timeline-node">
+                <div class="node-dot"></div>
+                <div class="role-date">2023 - HEDEN</div>
+                <div class="role-title">Senior Business Analist</div>
+                <div class="org-name">UWV</div>
+            </div>
+            
+            <div class="timeline-node">
+                <div class="node-dot"></div>
+                <div class="role-date">2018 - 2023</div>
+                <div class="role-title">Business Analist</div>
+                <div class="org-name">UWV</div>
+            </div>
+            
+            <div class="timeline-node">
+                <div class="node-dot"></div>
+                <div class="role-date">2017 - 2018</div>
+                <div class="role-title">Trainee</div>
+                <div class="org-name">UWV</div>
             </div>
 
-            <div class="track-title">Opleiding</div>
-            <div class="horizontal-track">
-                
-                <div class="timeline-node">
-                    <div class="node-dot"></div>
-                    <div class="role-date">2016 - 2017</div>
-                    <div class="role-title">MSc Communicatiewetenschap</div>
-                    <div class="org-name">Radboud Universiteit</div>
-                </div>
-                
-                <div class="timeline-node">
-                    <div class="node-dot"></div>
-                    <div class="role-date">2012 - 2016</div>
-                    <div class="role-title">BSc Communicatiewetenschap</div>
-                    <div class="org-name">Radboud Universiteit</div>
-                </div>
-
+            <div class="timeline-node edu-node">
+                <div class="node-dot"></div>
+                <div class="role-date">2016 - 2017</div>
+                <div class="role-title">MSc Communicatiewetenschap</div>
+                <div class="org-name">Radboud Universiteit</div>
             </div>
-        </section>
+            
+            <div class="timeline-node edu-node">
+                <div class="node-dot"></div>
+                <div class="role-date">2012 - 2016</div>
+                <div class="role-title">BSc Communicatiewetenschap</div>
+                <div class="org-name">Radboud Universiteit</div>
+            </div>
 
+        </div>
+    </section>
+
+    <div class="container">
         <section>
             <h2>Tech Stack & Tools</h2>
             <div class="skills-wrapper">
@@ -267,7 +277,6 @@
                 <div class="skill">Microsoft 365</div>
             </div>
         </section>
-
     </div>
 
 </body>
