@@ -20,24 +20,22 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* Body padding links/rechts is verwijderd om de full-width track ruimte te geven */
         body { 
             font-family: var(--font-sans); 
             background-color: var(--bg-color); 
             color: var(--text-main); 
             line-height: 1.7; 
             padding: 5rem 0; 
-            overflow-x: hidden; /* Voorkomt een ongewenste scrollbalk op de hele pagina */
+            overflow-x: hidden; 
         }
         
-        /* Container krijgt nu de padding voor mobiele weergave */
         .container { 
             max-width: 900px; 
             margin: 0 auto; 
             padding: 0 2rem;
         }
 
-        /* --- Header: Gecentreerd --- */
+        /* --- Header --- */
         header { 
             display: flex;
             flex-direction: column;
@@ -96,7 +94,7 @@
             color: var(--accent-color); 
         }
 
-        /* --- Horizontale Tijdlijn (Full Width) --- */
+        /* --- Horizontale Tijdlijn (Reversed Flow) --- */
         .timeline-section {
             width: 100vw;
             margin-bottom: 5rem;
@@ -104,14 +102,15 @@
 
         .full-width-track {
             display: flex;
+            /* Draait de stroom om: de recentste HTML node staat nu uiterst rechts */
+            flex-direction: row-reverse; 
             overflow-x: auto;
             padding-top: 2rem;
             padding-bottom: 3rem;
             
-            /* Zorgt dat het begin van de scroll uitlijnt met de container content */
-            padding-left: max(2rem, calc((100vw - 900px) / 2 + 2rem));
-            /* Zorgt dat je helemaal kunt doorscrollen tot het einde */
+            /* Zorgt voor perfecte uitlijning met het tekstblok van 900px */
             padding-right: max(2rem, calc((100vw - 900px) / 2 + 2rem));
+            padding-left: max(2rem, calc((100vw - 900px) / 2 + 2rem));
             
             scrollbar-width: thin;
             scrollbar-color: var(--border-color) transparent;
@@ -126,23 +125,23 @@
         }
 
         .timeline-node {
-            flex: 0 0 320px; /* Vaste breedte per item */
+            flex: 0 0 300px; 
             position: relative;
             border-top: 2px solid var(--border-color);
             padding-top: 1.5rem;
-            padding-right: 2.5rem;
+            padding-right: 1.5rem;
+            text-align: right; /* Laat de tekst mooi ankeren aan het bolletje rechts */
         }
 
-        /* Specifiek design voor de opleiding-nodes om ze iets te onderscheiden */
         .timeline-node.edu-node {
             border-top-style: dashed;
         }
 
-        /* Het bolletje op de tijdlijn */
+        /* Het bolletje staat nu rechts */
         .node-dot {
             position: absolute;
             top: -8px; 
-            left: 0;
+            right: 0; 
             width: 14px;
             height: 14px;
             background: var(--bg-color);
@@ -173,6 +172,31 @@
             margin-top: 0.5rem; 
         }
 
+        /* --- Certificeringen --- */
+        .cert-list { 
+            list-style-type: none; 
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+        @media (min-width: 650px) {
+            .cert-list { grid-template-columns: 1fr 1fr; }
+        }
+        .cert-list li { 
+            position: relative; 
+            padding-left: 1.5rem; 
+            font-weight: 600; 
+            color: var(--text-main);
+        }
+        .cert-list li::before { 
+            content: "▹"; 
+            color: var(--accent-color); 
+            position: absolute; 
+            left: 0; 
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+
         /* --- Skills --- */
         .skills-wrapper { 
             display: flex; 
@@ -200,9 +224,9 @@
         @media print {
             body { padding: 0; overflow: visible; }
             .timeline-section { width: 100%; page-break-inside: avoid; margin-bottom: 2rem; }
-            .full-width-track { flex-wrap: wrap; overflow-x: visible; padding: 0 !important; }
-            .timeline-node { flex: 1 1 100%; margin-bottom: 2rem; border-top: none; padding-top: 0; border-left: 2px solid var(--border-color); padding-left: 1.5rem; }
-            .node-dot { top: 0; left: -8px; }
+            .full-width-track { flex-direction: column; padding: 0 !important; }
+            .timeline-node { width: 100%; margin-bottom: 2rem; border-top: none; padding-right: 0; text-align: left; padding-left: 1.5rem; border-left: 2px solid var(--border-color); }
+            .node-dot { right: auto; left: -8px; }
             .timeline-node.edu-node { border-left-style: dashed; }
         }
 
@@ -268,15 +292,29 @@
     </section>
 
     <div class="container">
+        
+        <section>
+            <h2>Certificeringen</h2>
+            <ul class="cert-list">
+                <li>EXIN BCS Practicioner in Business Analysis</li>
+                <li>EXIN BCS Foundation in Business Analysis</li>
+                <li>Scaled Agile SAFe 5 Agilist</li>
+                <li>Bizzdesign BPMN Foundation</li>
+            </ul>
+        </section>
+
         <section>
             <h2>Tech Stack & Tools</h2>
             <div class="skills-wrapper">
-                <div class="skill">Atlassian Confluence</div>
-                <div class="skill">Atlassian Jira</div>
-                <div class="skill">Bizzdesign Horizzon</div>
                 <div class="skill">Microsoft 365</div>
+                <div class="skill">Microsoft Visio</div>
+                <div class="skill">Atlassian Jira</div>
+                <div class="skill">Atlassian Confluence</div>
+                <div class="skill">Bizzdesign Horizzon</div>
+                <div class="skill">Miro</div>
             </div>
         </section>
+
     </div>
 
 </body>
