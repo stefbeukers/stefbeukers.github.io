@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stef Beukers - Sr. Business Analist</title>
+    <title>Stef Beukers</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700;800&display=swap');
 
@@ -11,7 +11,7 @@
             --bg-color: #ffffff;          
             --text-main: #1e293b;         
             --text-muted: #64748b;        
-            --accent-color: #0ea5e9;      
+            --accent-color: #FF6F61;      /* Prachtige Koraal kleur */
             --border-color: #e2e8f0;      
             
             --font-mono: 'JetBrains Mono', monospace;
@@ -74,6 +74,49 @@
             border-radius: 0 0 8px 8px; 
             max-width: 650px;
         }
+
+        /* --- Knoppen --- */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
         
         /* --- Algemene Secties --- */
         section { 
@@ -102,13 +145,11 @@
 
         .full-width-track {
             display: flex;
-            /* Draait de stroom om: de recentste HTML node staat nu uiterst rechts */
             flex-direction: row-reverse; 
             overflow-x: auto;
             padding-top: 2rem;
             padding-bottom: 3rem;
             
-            /* Zorgt voor perfecte uitlijning met het tekstblok van 900px */
             padding-right: max(2rem, calc((100vw - 900px) / 2 + 2rem));
             padding-left: max(2rem, calc((100vw - 900px) / 2 + 2rem));
             
@@ -130,14 +171,13 @@
             border-top: 2px solid var(--border-color);
             padding-top: 1.5rem;
             padding-right: 1.5rem;
-            text-align: right; /* Laat de tekst mooi ankeren aan het bolletje rechts */
+            text-align: right; 
         }
 
         .timeline-node.edu-node {
             border-top-style: dashed;
         }
 
-        /* Het bolletje staat nu rechts */
         .node-dot {
             position: absolute;
             top: -8px; 
@@ -217,12 +257,13 @@
         .skill:hover { 
             border-color: var(--accent-color); 
             color: var(--accent-color); 
-            background: #f0f9ff;
+            background: #fff5f3; 
         }
 
         /* Print weergave optimalisatie */
         @media print {
             body { padding: 0; overflow: visible; }
+            .action-buttons { display: none !important; } 
             .timeline-section { width: 100%; page-break-inside: avoid; margin-bottom: 2rem; }
             .full-width-track { flex-direction: column; padding: 0 !important; }
             .timeline-node { width: 100%; margin-bottom: 2rem; border-top: none; padding-right: 0; text-align: left; padding-left: 1.5rem; border-left: 2px solid var(--border-color); }
@@ -242,6 +283,11 @@
             <div class="quote-box">
                 "Knowledge is knowing that a tomato is a fruit.<br>
                 Wisdom is knowing not to put it in a fruit salad."
+            </div>
+
+            <div class="action-buttons">
+                <a href="cv.pdf" target="_blank" class="btn btn-primary">Download PDF</a>
+                <a href="https://www.linkedin.com/in/stefbeukers/" target="_blank" class="btn btn-secondary">LinkedIn</a>
             </div>
         </header>
     </div>
@@ -298,6 +344,7 @@
             <ul class="cert-list">
                 <li>EXIN BCS Practicioner in Business Analysis</li>
                 <li>EXIN BCS Foundation in Business Analysis</li>
+                <li>PRINCE2 Foundation in Project Management</li>
                 <li>Scaled Agile SAFe 5 Agilist</li>
                 <li>Bizzdesign BPMN Foundation</li>
             </ul>
