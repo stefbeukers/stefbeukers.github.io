@@ -7,15 +7,30 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700;800&display=swap');
 
+        /* 1. Standaard (Lichte) Variabelen */
         :root {
             --bg-color: #ffffff;          
             --text-main: #1e293b;         
             --text-muted: #64748b;        
             --accent-color: #FF6F61;      /* Koraal */
             --border-color: #e2e8f0;      
+            --box-bg: #f8fafc;            /* Voor de quote box */
+            --skill-hover-bg: #fff5f3;    /* Voor de skill hover */
             
             --font-mono: 'JetBrains Mono', monospace;
             --font-sans: 'Inter', sans-serif;
+        }
+
+        /* 2. Automatische Dark Mode Variabelen */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;       /* Donkerblauw/grijs */
+                --text-main: #f8fafc;      /* Heldere lichte tekst */
+                --text-muted: #94a3b8;     /* Gedempte lichte tekst */
+                --border-color: #334155;   /* Donkere randen */
+                --box-bg: #1e293b;         /* Donkere quote box */
+                --skill-hover-bg: #1e293b; /* Donkere skill hover */
+            }
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,6 +42,8 @@
             line-height: 1.7; 
             padding: 5rem 0; 
             overflow-x: hidden; 
+            /* Zorgt voor een soepele overgang tussen licht en donker */
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .container { 
@@ -46,7 +63,7 @@
         
         h1 { 
             font-family: var(--font-mono); 
-            font-size: 2.8rem; 
+            font-size: clamp(2rem, 5vw, 2.8rem); /* Vloeiend schalen op mobiel */
             font-weight: 700; 
             letter-spacing: 2px; 
             text-transform: uppercase;
@@ -73,7 +90,7 @@
 
         /* Quote */
         .quote-box { 
-            background: #f8fafc; 
+            background: var(--box-bg); 
             border-top: 3px solid var(--accent-color); 
             padding: 1.5rem 2rem; 
             font-family: var(--font-mono); 
@@ -81,7 +98,8 @@
             color: var(--text-muted); 
             line-height: 1.8;
             border-radius: 0 0 8px 8px; 
-            max-width: 650px;
+            max-width: 100%; /* Aangepast voor mobiel */
+            transition: background-color 0.3s ease;
         }
 
         /* --- Knoppen --- */
@@ -166,7 +184,7 @@
         }
 
         .timeline-node {
-            flex: 0 0 300px; 
+            flex: 0 0 280px; /* Iets smaller gemaakt voor kleinere mobiele schermen */
             position: relative;
             border-top: 2px solid var(--border-color);
             padding-top: 1.5rem;
@@ -188,6 +206,7 @@
             border: 3px solid var(--accent-color);
             border-radius: 50%;
             z-index: 1;
+            transition: background-color 0.3s ease;
         }
 
         .role-date { 
@@ -263,16 +282,16 @@
         .skill:hover { 
             border-color: var(--accent-color); 
             color: var(--accent-color); 
-            background: #fff5f3; 
+            background: var(--skill-hover-bg); 
         }
 
         /* Print weergave optimalisatie */
         @media print {
-            body { padding: 0; overflow: visible; }
+            body { padding: 0; overflow: visible; background-color: #fff; color: #000; }
             .action-buttons { display: none !important; } 
             .timeline-section { width: 100%; page-break-inside: avoid; margin-bottom: 2rem; }
             .full-width-track { flex-direction: column; padding: 0 !important; }
-            .timeline-node { width: 100%; margin-bottom: 2rem; border-top: none; padding-right: 0; text-align: left; padding-left: 1.5rem; border-left: 2px solid var(--border-color); }
+            .timeline-node { width: 100%; margin-bottom: 2rem; border-top: none; padding-right: 0; text-align: left; padding-left: 1.5rem; border-left: 2px solid #ccc; }
             .node-dot { right: auto; left: -8px; }
             .timeline-node.edu-node { border-left-style: dashed; }
             .skills-wrapper { grid-template-columns: repeat(3, 1fr); }
