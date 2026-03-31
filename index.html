@@ -297,13 +297,40 @@
             .skills-wrapper { grid-template-columns: repeat(3, 1fr); }
         }
 
+        .cursor {
+            color: var(--accent-color);
+            font-weight: 400;
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Laat het bolletje vullen met de accentkleur als je over het blok hovert */
+        .timeline-node:hover .node-dot {
+            background: var(--accent-color);
+            transform: scale(1.2); /* Maakt hem iets groter */
+        }
+        
+        /* Verander de kleur van de bovenste lijn */
+        .timeline-node:hover {
+            border-top-color: var(--accent-color);
+        }
+        
+        /* Zorg voor een soepele overgang */
+        .timeline-node, .node-dot {
+            transition: all 0.3s ease;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>Stef <span>Beukers</span></h1>
+            <h1>Stef <span>Beukers</span><span class="cursor">_</span></h1>
             <div class="meta-info">[ 1993 // Arnhem ]</div>
             
             <div class="quote-box">
